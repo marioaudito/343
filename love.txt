@@ -1,0 +1,106 @@
+
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
+#include <stdlib.h>
+
+static int slices = 16;
+static int stacks = 16;
+double equation[4] = {0,0,0,0};
+int disElem = 0;
+/* GLUT callback Handlers */
+
+static void resize(int width, int height)
+{
+    const float ar = (float) width / (float) height;
+
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glFrustum(-ar, ar, -1.0, 1.0, 2.0, 100.0);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity() ;
+}
+
+static void display(void)
+{
+
+    const double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0;
+    const double a = t*90.0;
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT |GL_STENCIL_BUFFER_BIT);
+/*    glEnable(GL_CLIP_PLANE0);
+    glColor3d(1,0,0);
+
+    glPushMatrix();
+    glClipPlane(GL_CLIP_PLANE0, equation);
+        glTranslated(-2.5,0,-6);
+        glRotated(60,1,0,0);
+        glRotated(a,0,0,1);
+        glutSolidSphere(1,slices,stacks);
+         glDisable(GL_CLIP_PLANE0);
+    glPopMatrix();
+
+*/
+
+
+
+
+
+
+
+/////////////////task2/////////
+
+
+
+
+  /*  glPushMatrix();
+        glStencilFunc(GL_ALWAYS,1,0);
+        glStencilOp(GL_KEEP,GL_KEEP,GL_REPLACE);
+        glTranslated(0,0,-6);
+        glRotated(60,1,0,0);
+        glRotated(0,0,0,1);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glPushMatrix();
+        glColor3d(0,1,0);
+        glStencilFunc(GL_ALWAYS,2,0);
+        glStencilOp(GL_KEEP,GL_KEEP,GL_REPLACE);
+
+        glutSolidSphere(0.6,slices, stacks);
+
+    glPopMatrix();
+
+
+    glPushMatrix();
+       // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glColor3d(1,1,1);
+        glStencilFunc(GL_EQUAL,1,255);
+        glutSolidCube(1);
+    glPopMatrix();
+*/
+   /* glEnable(GL_STENCIL_TEST);
+
+
+
+
+    glPushMatrix();
+        glStencilFunc(GL_ALWAYS,1,0);
+        glStencilOp(GL_REPLACE, GL_KEEP, GL_KEEP);
+        glTranslated(0,0,-6);
+        glColor3d(0,1,0);
+        glutWireTorus(0.3,0.7,20,20);
+    glPopMatrix();
+
+
+    glPushMatrix();
+        glStencilFunc(GL_NEVER,2,0);
+        glStencilOp(GL_ZERO, GL_ZERO, GL_ZERO);
+        glTranslated(0.4,-0.5,-6);
+        glColor3d(1,1,0);
+        glutSolidCube(0.8);
+    glPopMatrix();

@@ -1,0 +1,2 @@
+//this is hello file write hello
+hello from vasia

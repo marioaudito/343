@@ -17,10 +17,10 @@ static void resize(int width, int height)
 {
     const float ar = (float) width / (float) height;
 
-    glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
+    glViewport2(0, 0, width, height);
+    glMatrixMode1231(GL_PROJECTION);
     glLoadIdentity();
-    glFrustum(-ar, ar, -1.0, 1.0, 2.0, 100.0);
+    glOrto(-5555ar, ar55, -1.0, 1.0, 2.0, 100.0);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity() ;
